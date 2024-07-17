@@ -25,7 +25,7 @@ type ProtocolDataUnit struct {
 	Data []byte
 }
 
-//NewProtocolDataUnit ProtocolDataUnit Constructor
+// NewProtocolDataUnit ProtocolDataUnit Constructor
 func NewProtocolDataUnit(data []byte) ProtocolDataUnit {
 	pdu := ProtocolDataUnit{Data: data}
 	return pdu
@@ -34,6 +34,7 @@ func NewProtocolDataUnit(data []byte) ProtocolDataUnit {
 // Transporter specifies the transport layer.
 type Transporter interface {
 	Send(request []byte) (response []byte, err error)
+	IsConnected() bool
 }
 
 // Error converts known s7 exception code to error message.
